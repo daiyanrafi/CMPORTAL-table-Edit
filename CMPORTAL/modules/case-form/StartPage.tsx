@@ -20,13 +20,11 @@ type StartPageProps = {
   onEdit: (index: number) => void; // Include the onEdit prop
 };
 
-const StartPage: React.FC<StartPageProps> = ({ onNext, userDataList, onEdit }) => {
-  console.log('onEdit prop:', onEdit);
-  
-  const handleNext = () => {
-    onNext();
-  };
+// StartPage.tsx
 
+// StartPage.tsx
+
+const StartPage: React.FC<StartPageProps> = ({ onNext, userDataList, onEdit }) => {
   return (
     <Container
       style={{
@@ -39,7 +37,7 @@ const StartPage: React.FC<StartPageProps> = ({ onNext, userDataList, onEdit }) =
       <Paper elevation={3} style={{ padding: '2rem', marginTop: '2rem', width: '80%' }}>
         <Box mb={3} display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant="h5">User Data Table</Typography>
-          <Button variant="contained" color="primary" onClick={handleNext}>
+          <Button variant="contained" color="primary" onClick={onNext}>
             Add New Cases
           </Button>
         </Box>
@@ -51,6 +49,7 @@ const StartPage: React.FC<StartPageProps> = ({ onNext, userDataList, onEdit }) =
               <TableCell>User First Name</TableCell>
               <TableCell>User Last Name</TableCell>
               <TableCell>User Country</TableCell>
+              <TableCell>Edit</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -61,10 +60,10 @@ const StartPage: React.FC<StartPageProps> = ({ onNext, userDataList, onEdit }) =
                 <TableCell>{userData.user_lastName}</TableCell>
                 <TableCell>{userData.user_country}</TableCell>
                 <TableCell>
-              <Button variant="outlined" color="primary" onClick={() => onEdit(index)}>
-                Edit
-              </Button>
-            </TableCell>
+                  <Button variant="outlined" color="primary" onClick={() => onEdit(index)}>
+                    Edit
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -75,3 +74,4 @@ const StartPage: React.FC<StartPageProps> = ({ onNext, userDataList, onEdit }) =
 };
 
 export default StartPage;
+

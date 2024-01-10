@@ -135,8 +135,6 @@ function App() {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-
-    console.log('isEditMode:', isEditMode);
   
     if (isEditMode) {
       // Update existing user
@@ -162,6 +160,7 @@ function App() {
       setRecaptchaValue(null);
     }
   }
+  
   
   
 
